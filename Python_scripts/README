@@ -1,4 +1,4 @@
-# Splitting PLINK Files by Ethnicity
+### Script 1: Splitting PLINK Files by Ethnicity
 
 ## Description
 This Python script splits the genotype data from PLINK files (`.bed`, `.bim`, and `.fam`) based on the ethnicity information provided in a separate text file. It creates new PLINK files for each unique ethnic group present in the data, allowing for subsequent analyses to be performed separately on each ethnic group.
@@ -95,3 +95,80 @@ After running the script, you will have the following output files:
 - `EUR_samples.bed`
 
 These files can be used for subsequent analyses on the respective ethnic groups.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+### Script 2: Converting Continuous Phenotype to Binary Case/Control
+
+## Description
+This Python script takes a phenotype file containing continuous phenotype values and converts it to a binary case/control format based on a specified threshold. The script uses pandas for data manipulation and saves the resulting binary phenotype file in a text format suitable for PLINK analysis.
+
+## Requirements
+- Python 3.x
+- pandas
+
+You can install the required package using pip:
+
+```
+pip install pandas
+```
+
+## Input File
+- `phenotype_10000_samples_100cols.txt`: A text file containing phenotype data for 10,000 samples and 100 columns. The file should be space-delimited or tab-delimited. The script assumes that the column containing the phenotype of interest is named `'Y1'`.
+
+## Output File
+- `binary_phenotype_temus.phe`: A text file containing the binary case/control phenotype data. The file is tab-delimited and includes three columns: `'FID'` (Family ID), `'IID'` (Individual ID), and `'Y1_binary'` (binary phenotype value).
+
+## Usage
+1. Place the script in the same directory as the input file (`phenotype_10000_samples_100cols.txt`).
+2. Open a terminal or command prompt and navigate to the directory containing the script and input file.
+3. Run the script:
+
+```
+python script.py
+```
+
+4. The script will generate the output file `binary_phenotype_temus.phe` in the same directory.
+
+## Script Walkthrough
+
+1. The script starts by importing the `pandas` library.
+
+2. The phenotype data is loaded from the `phenotype_10000_samples_100cols.txt` file using `pd.read_csv`. The file is assumed to be space-delimited or tab-delimited.
+
+3. A threshold value is defined based on the median of the `'Y1'` column, which represents the continuous phenotype of interest. You can modify this line to use a different threshold or calculation method if desired.
+
+```
+threshold = phenotype_df['Y1'].median()
+```
+
+4. The continuous phenotype values in the `'Y1'` column are converted to binary case/control values using the `apply` method with a lambda function. If the value is greater than or equal to the threshold, it is assigned a value of `2` (case); otherwise, it is assigned a value of `1` (control).
+
+```
+phenotype_df['Y1_binary'] = phenotype_df['Y1'].apply(lambda x: 2 if x >= threshold else 1)
+```
+
+5. A new DataFrame is created by selecting the `'FID'`, `'IID'`, and `'Y1_binary'` columns from the original DataFrame.
+
+6. The new DataFrame is saved to a text file (`binary_phenotype_temus.phe`) using the `to_csv` method. The file is tab-delimited, and the header row is included.
+
+```
+phenotype_df[['FID', 'IID', 'Y1_binary']].to_csv(binary_phenotype_file, sep='\t', index=False, header=True)
+```
+
+## Notes
+- The script assumes that the input file (`phenotype_10000_samples_100cols.txt`) is present in the same directory as the script.
+- The script assumes that the column containing the phenotype of interest is named `'Y1'`.
+- The script uses the median of the `'Y1'` column as the threshold for converting continuous phenotype values to binary case/control values. You can modify this line to use a different threshold or calculation method if desired.
+- The output file `binary_phenotype_temus.phe` is saved in the same directory as the script.
+
+## Example
+Suppose you have the following input file:
+
+- `phenotype_10000_samples_100cols.txt`
+
+After running the script, you will have the following output file:
+
+- `binary_phenotype_temus.phe`
+
+This file can be used as input for PLINK analysis, where the binary case/control phenotype values are associated with the corresponding samples (identified by `'FID'` and `'IID'`).
