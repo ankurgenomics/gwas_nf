@@ -1,0 +1,97 @@
+# Splitting PLINK Files by Ethnicity
+
+## Description
+This Python script splits the genotype data from PLINK files (`.bed`, `.bim`, and `.fam`) based on the ethnicity information provided in a separate text file. It creates new PLINK files for each unique ethnic group present in the data, allowing for subsequent analyses to be performed separately on each ethnic group.
+
+## Requirements
+- Python 3.x
+- pandas
+- numpy
+
+You can install the required packages using pip:
+
+```pip install pandas numpy```
+
+## Input Files
+1. `samples.txt`: A text file containing sample information, including the Family ID (`FID`) and ethnic group (`ETHNIC_GROUP`) columns. This file should be tab-delimited or whitespace-delimited.
+
+2. `100000_variants_10000_samples_5_chromosomes.fam`: The PLINK family file (`.fam`) containing sample information.
+
+3. `100000_variants_10000_samples_5_chromosomes.bim`: The PLINK binary marker file (`.bim`) containing information about the genetic markers (SNPs).
+
+4. `100000_variants_10000_samples_5_chromosomes.bed`: The PLINK binary genotype file (`.bed`) containing the genotype data.
+
+## Output Files
+For each unique ethnic group present in the `samples.txt` file, the script generates the following files:
+
+1. `<ethnicity>_samples.fam`: The PLINK family file containing only the samples belonging to the specified ethnic group.
+2. `<ethnicity>_samples.bim`: The PLINK binary marker file, which is a copy of the original `.bim` file.
+3. `<ethnicity>_samples.bed`: The PLINK binary genotype file containing only the genotype data for the samples belonging to the specified ethnic group.
+
+## Usage
+1. Place the script in the same directory as the input files.
+2. Open a terminal or command prompt and navigate to the directory containing the script and input files.
+3. Run the script:
+
+```python script.py```
+
+4. The script will generate the output files for each unique ethnic group present in the `samples.txt` file.
+
+## Script Walkthrough
+
+1. The script starts by importing the required libraries: `pandas` and `numpy`.
+
+2. The sample information is loaded from the `samples.txt` file using `pd.read_csv`. The script checks if the required columns (`'FID'` and `'ETHNIC_GROUP'`) are present in the sample information file.
+
+3. The `.fam` file is loaded into a pandas DataFrame (`fam_df`), and the columns are renamed to match the PLINK format.
+
+4. The sample information DataFrame (`sample_info`) is merged with `fam_df` to include the ethnicity information for each sample.
+
+5. The merged DataFrame is split based on the unique ethnic groups present in the data.
+
+6. For each ethnic group, the script:
+   - Extracts the subset of samples belonging to that ethnic group.
+   - Saves the subset as a new `.fam` file with the format `<ethnicity>_samples.fam`.
+
+7. The `.bim` file is loaded into a pandas DataFrame (`bim_df`).
+
+8. A function `read_bed_file` is defined to read the binary genotype data from the `.bed` file. This function reads the data as a numpy array and handles the bit-packing used in the PLINK binary format.
+
+9. The original `.bed` file is read using the `read_bed_file` function, and the genotype data is stored in the `genotype_data` numpy array.
+
+10. For each ethnic group:
+    - The corresponding subset `.fam` file is loaded.
+    - The indices of the samples belonging to the ethnic group are extracted from the original `.fam` file.
+    - A mask is created to select the relevant samples from the genotype data.
+    - The subset genotype data is created by applying the mask to the original genotype data.
+    - The subset genotype data is written to a new `.bed` file with the format `<ethnicity>_samples.bed`.
+    - The original `.bim` file is copied to a new file with the format `<ethnicity>_samples.bim`.
+
+11. Finally, a success message is printed to indicate that the genotype data has been split by ethnicity.
+
+## Notes
+- The script assumes that the input files (`samples.txt`, `.fam`, `.bim`, and `.bed`) are present in the same directory as the script.
+- The script assumes that the `samples.txt` file contains the required columns (`'FID'` and `'ETHNIC_GROUP'`).
+- The script handles the bit-packing used in the PLINK binary format when reading and writing the `.bed` files.
+- The script preserves the original `.bim` file for each ethnic group, as the marker information is not affected by the ethnicity split.
+
+## Example
+Suppose you have the following input files:
+
+- `samples.txt`
+- `100000_variants_10000_samples_5_chromosomes.fam`
+- `100000_variants_10000_samples_5_chromosomes.bim`
+- `100000_variants_10000_samples_5_chromosomes.bed`
+
+And the `samples.txt` file contains two ethnic groups: `'AFR'` and `'EUR'`.
+
+After running the script, you will have the following output files:
+
+- `AFR_samples.fam`
+- `AFR_samples.bim`
+- `AFR_samples.bed`
+- `EUR_samples.fam`
+- `EUR_samples.bim`
+- `EUR_samples.bed`
+
+These files can be used for subsequent analyses on the respective ethnic groups.
