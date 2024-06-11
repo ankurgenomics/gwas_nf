@@ -1,0 +1,44 @@
+PLINK v2.00a2.3LM 64-bit Intel (24 Jan 2020)
+Options in effect:
+  --bfile 1_samples
+  --geno 0.1
+  --hwe 0.00
+  --mac 100
+  --maf 0.01
+  --make-bed
+  --memory 16384
+  --mind 0.1
+  --no-id-header
+  --out 1_samples.qc
+  --threads 8
+  --write-samples
+  --write-snplist
+
+Hostname: f6c4d99520ea
+Working directory: /home/ec2-user/GWAS/nf-gwas/work/8c/0dd0159771c7b2c102816435bee101
+Start time: Tue Jun 11 15:06:59 2024
+
+Random number seed: 1718118419
+95017 MiB RAM detected; reserving 16384 MiB for main workspace.
+Using up to 8 compute threads.
+2389 samples (0 females, 0 males, 2389 ambiguous; 2389 founders) loaded from
+1_samples.fam.
+100000 variants loaded from 1_samples.bim.
+1 quantitative phenotype loaded (2389 values).
+Calculating sample missingness rates... done.
+0 samples removed due to missing genotype data (--mind).
+2389 samples (0 females, 0 males, 2389 ambiguous; 2389 founders) remaining
+after main filters.
+2389 quantitative phenotype values remaining after main filters.
+--write-samples: Sample IDs written to 1_samples.qc.id .
+Calculating allele frequencies... done.
+--geno: 0 variants removed due to missing genotype data.
+0 variants removed due to allele frequency threshold(s)
+(--maf/--max-maf/--mac/--max-mac).
+100000 variants remaining after main filters.
+--write-snplist: Variant IDs written to 1_samples.qc.snplist .
+Writing 1_samples.qc.fam ... done.
+Writing 1_samples.qc.bim ... done.
+Writing 1_samples.qc.bed ... done.
+
+End time: Tue Jun 11 15:06:59 2024
