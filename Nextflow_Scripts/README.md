@@ -21,7 +21,12 @@
 2. Run the pipeline on your data
 
 ```
-nextflow run main.nf -c <nextflow.config> -r v1.0.8 -profile docker
+# install using :
+git clone https://github.com/ankurgenomics/gwas_nf
+cd gwas_nf
+cd Nextflow_Scripts
+# change the parameters and location of files as per your local directories in config
+nextflow run main.nf -c <nextflow.config>  -profile docker
 ```
 
 Please click [here](tests) for available test config files.
