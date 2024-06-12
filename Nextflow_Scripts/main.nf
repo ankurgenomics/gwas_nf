@@ -1,11 +1,6 @@
 #!/usr/bin/env nextflow
 /*
-========================================================================================
-    genepi/nf-gwas
-========================================================================================
-    Github : https://github.com/genepi/nf-gwas
-    Author: Sebastian Schönherr & Lukas Forer
-    ---------------------------
+
 */
 
 nextflow.enable.dsl = 2
