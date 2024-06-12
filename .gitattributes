@@ -1,1 +1,0 @@
-INPUT/RAW_data/100000_variants_10000_samples_5_chromosomes.bed filter=lfs diff=lfs merge=lfs -text
