@@ -12,13 +12,6 @@ Documentation can be found [here](https://genepi.github.io/nf-gwas/).
 
 ![image](docs/images/Figure1_MetroMap_v02.jpg)
 
-## Citation
-
-Please cite [our paper](https://academic.oup.com/nargab/article/6/1/lqae015/7602818) if you use nf-gwas:
-
-> Schönherr S*, Schachtl-Riess JF*, Di Maio S*, Filosi M, Mark M, Lamina C, Fuchsberger C, Kronenberg F, Forer L. 
-> Performing highly parallelized and reproducible GWAS analysis on biobank-scale data. 
-> NAR Genom Bioinform. 2024 Feb 7;6(1):lqae015. doi: 10.1093/nargab/lqae015. PMID: 38327871; PMCID: PMC10849172.
 
 
 ## Quick Start
