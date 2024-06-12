@@ -1,24 +1,39 @@
 # nf-gwas
-**nf-gwas** is a modular and scalabl Nextflow pipeline to run genome-wide association studies (GWAS) analysis. The pipeline automatically performs numerous pre- and post-processing steps, integrates regression modeling from the REGENIE package and currently supports single-variant, gene-based and interaction testing. All modules are structured in sub-workflows which allows to extend the pipeline to other methods and tools in future. nf-gwas includes an extensive reporting functionality that allows to inspect thousands of phenotypes and navigate interactive Manhattan plots directly in the web browser. .
+**nf-gwas: A Modular and Scalable Nextflow Pipeline for Genome-Wide Association Studies (GWAS)**
 
-## Process:
+**Overview**
 
-1- First we need to split the genotype data into separate datasets based on the ethnic groups provided in the <samples.txt file>.
- The Script and details of script can be traced at : https://github.com/ankurgenomics/gwas_nf/blob/main/Python_scripts/README
- The input files provided are at : https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/INPUT/RAW_data
- After using the python script https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/split_genotype_by_ethinicity_2.py , we got the 4 ethinicity data at : https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT
+nf-gwas is a comprehensive and flexible Nextflow pipeline designed to perform genome-wide association studies (GWAS) analysis. This pipeline automates numerous pre- and post-processing steps, integrates regression modeling from the REGENIE package, and supports single-variant, gene-based, and interaction testing. The modular structure of the pipeline allows for easy extension to incorporate additional methods and tools in the future. Furthermore, nf-gwas includes an extensive reporting functionality, enabling users to inspect thousands of phenotypes and navigate interactive Manhattan plots directly in the web browser.
 
- 2- Optionally, for some workflows, we might have to convert continuous Phenotype to Binary Case/Control phenotype. This can be achieved using script : https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/phenotype_txt_to_binary_ph.py
+### Process
 
- 3- Then we can use the Ethinicity based splitted genotype files as input to next steps using modular and scalable nextflow scripts : https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/Nextflow_Scripts
- 
- 4- Using this script, we performed standard QC steps including removing individuals and SNPs with high missingness for each ethnic group separately. 
- 
- 5- The same script also perfomed GWAS for each ethnic group separately.
+The pipeline involves the following steps:
 
- 6- The script also Identified and reported common variants across the different ethnic groups.
+1. **Splitting Genotype Data by Ethnicity**:
+   The pipeline begins by splitting the genotype data into separate datasets based on the ethnic groups provided in the `samples.txt` file. The script used for this step can be found at [https://github.com/ankurgenomics/gwas_nf/blob/main/Python_scripts/README](https://github.com/ankurgenomics/gwas_nf/blob/main/Python_scripts/README). The input files are available at [https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/INPUT/RAW_data](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/INPUT/RAW_data).
+   The Python script used for splitting the genotype data is located at [https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/split_genotype_by_ethinicity_2.py](https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/split_genotype_by_ethinicity_2.py).
+   The output files are stored at [https://github.com/ankurgenomics/gwas_nf/tree/e1dfc22455242edf9bd3ec6dc8946433d0c8bd4a/INPUT/Gentotype_splitted_as_per_ethnic_group]([https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT](https://github.com/ankurgenomics/gwas_nf/tree/e1dfc22455242edf9bd3ec6dc8946433d0c8bd4a/INPUT/Gentotype_splitted_as_per_ethnic_group)).
 
- 7- The results of these analysis are stored at https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT
+3. **Converting Continuous Phenotype to Binary Case/Control Phenotype (Optional)**:
+   For certain workflows, it may be necessary to convert continuous phenotypes to binary case/control phenotypes. This can be achieved using the script located at [https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/phenotype_txt_to_binary_ph.py](https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/phenotype_txt_to_binary_ph.py).
+
+4. **Nextflow Scripts for GWAS Analysis**:
+   The ethnicity-based split genotype files are used as input for the next steps, which are performed using modular and scalable Nextflow scripts located at [https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/Nextflow_Scripts](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/Nextflow_Scripts).
+
+5. **Quality Control and GWAS**:
+   The Nextflow scripts perform standard quality control steps, including removing individuals and SNPs with high missingness for each ethnic group separately. They also perform GWAS for each ethnic group separately.
+
+6. **Identifying Common Variants**:
+   The scripts identify and report common variants across the different ethnic groups.
+
+7. **Output**:
+   The results of these analyses are stored at [https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT).
+
+### Contact
+
+For any inquiries or questions, please contact:
+
+- [Ankur Sharma](mailto:ankur012@e.ntu.edu.sg)
 
  
 ## Contact
