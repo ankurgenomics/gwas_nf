@@ -3,6 +3,8 @@
 
 ## Quick Start
 
+ Check documentation here : https://github.com/ankurgenomics/gwas_nf/blob/main/Nextflow_Scripts/README.md
+
 1. Install [Nextflow](https://www.nextflow.io/docs/latest/getstarted.html#installation) (>=22.10.4)
 
 2. Run the pipeline on a test dataset
