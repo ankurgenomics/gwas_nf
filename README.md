@@ -1,9 +1,15 @@
 # nf-gwas
 **nf-gwas** is a Nextflow pipeline to run genome-wide association studies (GWAS) analysis. The pipeline automatically performs numerous pre- and post-processing steps, integrates regression modeling from the REGENIE package and currently supports single-variant, gene-based and interaction testing. All modules are structured in sub-workflows which allows to extend the pipeline to other methods and tools in future. nf-gwas includes an extensive reporting functionality that allows to inspect thousands of phenotypes and navigate interactive Manhattan plots directly in the web browser. .
 
-## Quick Start
+## Process:
 
- Check documentation here : https://github.com/ankurgenomics/gwas_nf/blob/main/Nextflow_Scripts/README.md
+1- First we need to split the genotype data into separate datasets based on the ethnic groups provided in the <samples.txt file>.
+ The Script and details of script can be traced at : https://github.com/ankurgenomics/gwas_nf/blob/main/Python_scripts/README
+ The input files provided are at : INPUT/RAW_data
+ 
+ The resulst of 
+2- Next, we obtained
+ Check the Nextflow based documentation here : https://github.com/ankurgenomics/gwas_nf/blob/main/Nextflow_Scripts/README.md
 
 1. Install [Nextflow](https://www.nextflow.io/docs/latest/getstarted.html#installation) (>=22.10.4)
 
