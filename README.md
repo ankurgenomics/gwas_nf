@@ -23,7 +23,7 @@ Please click [here](tests) for available test config files.
 ## Development
 
 ```
-git clone [https://github.com/ankurgenomics/gwas_nf.git]
+git clone https://github.com/ankurgenomics/gwas_nf.git
 cd nf-gwas
 nextflow run main.nf -profile test,development
 ```
