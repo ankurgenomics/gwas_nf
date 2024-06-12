@@ -29,6 +29,10 @@ The pipeline involves the following steps:
 7. **Output**:
    The results of these analyses are stored at [OUTPUT](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT).
 
+## Overall pipeline
+
+![image](https://github.com/ankurgenomics/gwas_nf/blob/main/Nextflow_Scripts/Pipeline_Final.jpg)
+
 ### Contact
 
 For any inquiries or questions, please contact:
