@@ -15,6 +15,9 @@
 A detailed project summary, phenotype stats, Manhattan Plot, Significant loci, QQ Plot, Validation and Logs are in the 
 [index_reports](https://github.com/ankurgenomics/gwas_nf/tree/274ef38c06255b25cd77587db5cb965505c6ba88/OUTPUT/TEMUS_ETH_2/index_reports) of each sample and phentype 
 
+Top hits for each can be find at 
+ {HITS} (https://github.com/ankurgenomics/gwas_nf/tree/28aa91346b443393829803285c2a80427a39f361/OUTPUT/TEMUS_ETH_2/results/tophits)
+
 
 
 ## Quick Start
