@@ -12,7 +12,7 @@ The pipeline involves the following steps:
 1. **Splitting Genotype Data by Ethnicity**:
    The pipeline begins by splitting the genotype data into separate datasets based on the ethnic groups provided in the `samples.txt` file. The script used for this step can be found at [Python_scripts](https://github.com/ankurgenomics/gwas_nf/blob/main/Python_scripts/README). The input files are available at [INPUT/RAW_data](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/INPUT/RAW_data).
    The Python script used for splitting the genotype data is [split_genotype_by_ethinicity_2.py](https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/split_genotype_by_ethinicity_2.py).
-   The output files are stored at [Gentotype_splitted_as_per_ethnic_group][https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT](https://github.com/ankurgenomics/gwas_nf/tree/e1dfc22455242edf9bd3ec6dc8946433d0c8bd4a/INPUT/Gentotype_splitted_as_per_ethnic_group).
+   The output files are stored at [Gentotype_splitted_as_per_ethnic_group](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT).
 
 3. **Converting Continuous Phenotype to Binary Case/Control Phenotype (Optional)**:
    For certain workflows, it may be necessary to convert continuous phenotypes to binary case/control phenotypes. This can be achieved using the script [phenotype_txt_to_binary_ph.py](https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/phenotype_txt_to_binary_ph.py).
