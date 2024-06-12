@@ -1,0 +1,70 @@
+Start time: Wed Jun 12 16:20:56 2024
+
+              |===========================|
+              |      REGENIE v3.4.gz      |
+              |===========================|
+
+Copyright (c) 2020-2023 Joelle Mbatchou, Andrey Ziyatdinov and Jonathan Marchini.
+Distributed under the MIT License.
+Compiled with Boost Iostream library.
+
+Log of output saved in file : 1000g_lpa_hg38.vcf.log
+
+Options in effect:
+  --step 2 \
+  --pgen 1000g_lpa_hg38.vcf \
+  --phenoFile phenotype.validated.txt \
+  --phenoColList Y1,Y2 \
+  --bsize 400 \
+  --pred regenie_step1_out_pred.list \
+  --threads 8 \
+  --minMAC 5 \
+  --minINFO 0.00 \
+  --gz \
+  --no-split \
+  --test additive \
+  --rare-mac 1000 \
+  --out 1000g_lpa_hg38.vcf
+
+Association testing mode with fast multithreading using OpenMP
+ * pvar             : [1000g_lpa_hg38.vcf.pvar] n_snps = 3327
+ * psam             : [1000g_lpa_hg38.vcf.psam] n_samples = 158
+ * pgen             : [1000g_lpa_hg38.vcf.pgen] 
+WARNING: Dosages are not present in the genotype file. Option --minINFO is skipped.
+ * phenotypes       : [phenotype.validated.txt] n_pheno = 2
+   -number of phenotyped individuals  = 158
+ * number of individuals used in analysis = 158
+ * number of observations for each trait:
+   - 'Y1': 158 observations
+   - 'Y2': 158 observations
+ * LOCO predictions : [regenie_step1_out_pred.list]
+   -file [regenie_step1_out_1.loco.gz] for phenotype 'Y1'
+   -file [regenie_step1_out_2.loco.gz] for phenotype 'Y2'
+   -residualizing and scaling phenotypes...done (0ms) 
+ * # threads        : [8]
+ * block size       : [400]
+ * # blocks         : [9]
+ * approximate memory usage : 2MB
+ * using minimum MAC of 5 (variants with lower MAC are ignored)
+ * using minimum imputation info score of 0 (variants with lower info score are ignored)
+
+Chromosome 6 [9 blocks in total]
+   -reading loco predictions for the chromosome...done (0ms) 
+ block [1/9] : done (0ms) 
+ block [2/9] : done (0ms) 
+ block [3/9] : done (0ms) 
+ block [4/9] : done (0ms) 
+ block [5/9] : done (0ms) 
+ block [6/9] : done (0ms) 
+ block [7/9] : done (0ms) 
+ block [8/9] : done (0ms) 
+ block [9/9] : done (0ms) 
+
+Association results stored in file : 1000g_lpa_hg38.vcf.regenie.gz
+ + dictionary with trait names in file : 1000g_lpa_hg38.vcf.regenie.Ydict
+
+Number of ignored tests due to low MAC or info score : 5902
+
+Elapsed time : 0.0130618s
+End time: Wed Jun 12 16:20:56 2024
+

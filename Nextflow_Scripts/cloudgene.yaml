@@ -1,9 +1,10 @@
 id: nf-gwas
 name: nf-gwas
-version: 1.0
+version: 0.1.9
 description: A Nextflow GWAS pipeline.
-author: Ankur Sharma
-website: https://github.com/ankurgenomics/gwas_nf
+author: Lukas Forer and Sebastian Schönherr
+website: https://github.com/genepi/nf-gwas
+logo: https://avatars.githubusercontent.com/u/930103?s=200&v=4
 
 workflow:
 

@@ -1,0 +1,45 @@
+PLINK v2.00a2.3LM 64-bit Intel (24 Jan 2020)
+Options in effect:
+  --bfile example
+  --geno 0.1
+  --hwe 1e-15
+  --mac 100
+  --maf 0.01
+  --make-bed
+  --memory 16384
+  --mind 0.1
+  --no-id-header
+  --out example.qc
+  --threads 8
+  --write-samples
+  --write-snplist
+
+Hostname: d3560c41907e
+Working directory: /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/7b/9889fb0dd68d4fbebe5ff0c14de18f
+Start time: Wed Jun 12 16:23:23 2024
+
+Random number seed: 1718209403
+95017 MiB RAM detected; reserving 16384 MiB for main workspace.
+Using up to 8 compute threads.
+500 samples (0 females, 0 males, 500 ambiguous; 500 founders) loaded from
+example.fam.
+1000 variants loaded from example.bim.
+1 quantitative phenotype loaded (500 values).
+Calculating sample missingness rates... done.
+0 samples removed due to missing genotype data (--mind).
+500 samples (0 females, 0 males, 500 ambiguous; 500 founders) remaining after
+main filters.
+500 quantitative phenotype values remaining after main filters.
+--write-samples: Sample IDs written to example.qc.id .
+Calculating allele frequencies... done.
+--geno: 0 variants removed due to missing genotype data.
+--hwe: 0 variants removed due to Hardy-Weinberg exact test (founders only).
+242 variants removed due to allele frequency threshold(s)
+(--maf/--max-maf/--mac/--max-mac).
+758 variants remaining after main filters.
+--write-snplist: Variant IDs written to example.qc.snplist .
+Writing example.qc.fam ... done.
+Writing example.qc.bim ... done.
+Writing example.qc.bed ... done.
+
+End time: Wed Jun 12 16:23:23 2024

@@ -1,10 +1,10 @@
 #!/usr/bin/env nextflow
 /*
 ========================================================================================
-    ankurgenomics/gwas_nf
+    genepi/nf-gwas
 ========================================================================================
-    Github : https://github.com/ankurgenomics/gwas_nf
-    Author: Ankur Sharma
+    Github : https://github.com/genepi/nf-gwas
+    Author: Sebastian Schönherr & Lukas Forer
     ---------------------------
 */
 

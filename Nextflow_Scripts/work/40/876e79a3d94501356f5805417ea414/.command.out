@@ -1,0 +1,35 @@
+Process file 'Y2.regenie.gz'...
+Processed 376 variants.
+Wrote to file /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/40/876e79a3d94501356f5805417ea414/Y2.binned.txt Unbinned: 375. Peaks: 1. Binned: 0 in 0 bins
+Process file 'Y2.regenie.gz'...
+Processed 376 variants.
+Process file /templates/index.html...
+Bins: 0 --> Points: 0, Lines: 0
+Created 0 shapes
+HTML Report written to /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/40/876e79a3d94501356f5805417ea414/test.Y2.regenie.manhattan.html.
+1/13                  
+2/13 [setup]          
+3/13                  
+4/13 [unnamed-chunk-1]
+1/4                  
+2/4 [unnamed-chunk-6]
+3/4                  
+4/4 [unnamed-chunk-7]
+5/13                  
+6/13 [unnamed-chunk-2]
+7/13                  
+8/13 [unnamed-chunk-3]
+9/13                  
+10/13 [unnamed-chunk-4]
+11/13                  
+12/13 [unnamed-chunk-5]
+1/8                   
+2/8 [unnamed-chunk-8] 
+3/8                   
+4/8 [unnamed-chunk-9] 
+5/8                   
+6/8 [unnamed-chunk-10]
+7/8                   
+8/8 [unnamed-chunk-11]
+13/13                  
+/opt/conda/bin/pandoc +RTS -K512m -RTS /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/40/876e79a3d94501356f5805417ea414/gwas_report_template.knit.md --to html4 --from markdown+autolink_bare_uris+tex_math_single_backslash --output /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/40/876e79a3d94501356f5805417ea414/test.Y2.regenie.html --lua-filter /opt/conda/lib/R/library/rmarkdown/rmarkdown/lua/pagebreak.lua --lua-filter /opt/conda/lib/R/library/rmarkdown/rmarkdown/lua/latex-div.lua --embed-resources --standalone --mathjax --variable 'mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML' --variable 'robobook:true' --variable 'lightbox:true' --variable 'gallery:false' --variable bs3=TRUE --section-divs --table-of-contents --toc-depth 3 --template /opt/conda/lib/R/library/rmdformats/templates/template.html --highlight-style tango --variable theme=bootstrap --mathjax=rmdformats --include-in-header /tmp/RtmpLK8hj3/rmarkdown-str3a578ea7c8.html 

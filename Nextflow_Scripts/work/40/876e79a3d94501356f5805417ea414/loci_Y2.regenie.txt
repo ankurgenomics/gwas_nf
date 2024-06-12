@@ -1,0 +1,2 @@
+params.phenotype loci
+Y2 0

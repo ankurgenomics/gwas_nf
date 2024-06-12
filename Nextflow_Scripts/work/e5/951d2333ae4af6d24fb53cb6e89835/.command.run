@@ -1,0 +1,159 @@
+#!/bin/bash
+### ---
+### name: 'NF_GWAS:SINGLE_VARIANT_TESTS:REPORTING:REPORT (2)'
+### container: 'quay.io/genepi/nf-gwas:v1.0.8'
+### outputs:
+### - 'test.Y1.regenie.html'
+### - 'test.Y1.regenie.manhattan.html'
+### - 'loci_Y1.regenie.txt'
+### ...
+set -e
+set -u
+NXF_DEBUG=${NXF_DEBUG:=0}; [[ $NXF_DEBUG > 1 ]] && set -x
+NXF_ENTRY=${1:-nxf_main}
+
+nxf_container_env() {
+cat << EOF
+export PATH="\$PATH:/home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/bin"
+EOF
+}
+
+nxf_sleep() {
+  sleep $1 2>/dev/null || sleep 1;
+}
+
+nxf_date() {
+    local ts=$(date +%s%3N);
+    if [[ ${#ts} == 10 ]]; then echo ${ts}000
+    elif [[ $ts == *%3N ]]; then echo ${ts/\%3N/000}
+    elif [[ $ts == *3N ]]; then echo ${ts/3N/000}
+    elif [[ ${#ts} == 13 ]]; then echo $ts
+    else echo "Unexpected timestamp value: $ts"; exit 1
+    fi
+}
+
+nxf_env() {
+    echo '============= task environment ============='
+    env | sort | sed "s/\(.*\)AWS\(.*\)=\(.\{6\}\).*/\1AWS\2=\3xxxxxxxxxxxxx/"
+    echo '============= task output =================='
+}
+
+nxf_kill() {
+    declare -a children
+    while read P PP;do
+        children[$PP]+=" $P"
+    done < <(ps -e -o pid= -o ppid=)
+
+    kill_all() {
+        [[ $1 != $$ ]] && kill $1 2>/dev/null || true
+        for i in ${children[$1]:=}; do kill_all $i; done
+    }
+
+    kill_all $1
+}
+
+nxf_mktemp() {
+    local base=${1:-/tmp}
+    mkdir -p "$base"
+    if [[ $(uname) = Darwin ]]; then mktemp -d $base/nxf.XXXXXXXXXX
+    else TMPDIR="$base" mktemp -d -t nxf.XXXXXXXXXX
+    fi
+}
+
+nxf_fs_copy() {
+  local source=$1
+  local target=$2
+  local basedir=$(dirname $1)
+  mkdir -p $target/$basedir
+  cp -fRL $source $target/$basedir
+}
+
+nxf_fs_move() {
+  local source=$1
+  local target=$2
+  local basedir=$(dirname $1)
+  mkdir -p $target/$basedir
+  mv -f $source $target/$basedir
+}
+
+nxf_fs_rsync() {
+  rsync -rRl $1 $2
+}
+
+nxf_fs_rclone() {
+  rclone copyto $1 $2/$1
+}
+
+nxf_fs_fcp() {
+  fcp $1 $2/$1
+}
+
+on_exit() {
+    exit_status=${nxf_main_ret:=$?}
+    printf -- $exit_status > /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/e5/951d2333ae4af6d24fb53cb6e89835/.exitcode
+    set +u
+    docker rm $NXF_BOXID &>/dev/null || true
+    exit $exit_status
+}
+
+on_term() {
+    set +e
+    docker stop $NXF_BOXID
+}
+
+nxf_launch() {
+    docker run -i --cpu-shares 1024 --memory 8192m -e "NXF_TASK_WORKDIR" -v /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts:/home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts -w "$NXF_TASK_WORKDIR" --name $NXF_BOXID quay.io/genepi/nf-gwas:v1.0.8 /bin/bash -c "eval $(nxf_container_env); /bin/bash -ue /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/e5/951d2333ae4af6d24fb53cb6e89835/.command.sh"
+}
+
+nxf_stage() {
+    true
+    # stage input files
+    rm -f gwas_report_template.Rmd
+    rm -f phenotype.validated.txt
+    rm -f test.step2.log
+    rm -f functions.R
+    rm -f phenotype.validated.log
+    rm -f Y1.regenie.filtered.gz
+    rm -f Y1.regenie.gz
+    rm -f child_phenostatistics.Rmd
+    rm -f child_validationlogs.Rmd
+    ln -s /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/reports/gwas_report_template.Rmd gwas_report_template.Rmd
+    ln -s /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/6d/4120c47109d2c1024f6562ecc217dd/phenotype.validated.txt phenotype.validated.txt
+    ln -s /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/28/e34d8a9a6328b3aec0c4a3b46dd292/test.step2.log test.step2.log
+    ln -s /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/reports/functions.R functions.R
+    ln -s /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/6d/4120c47109d2c1024f6562ecc217dd/phenotype.validated.log phenotype.validated.log
+    ln -s /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/a5/7130c5201157f39ea8205121080368/Y1.regenie.filtered.gz Y1.regenie.filtered.gz
+    ln -s /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/c2/a23728bb6cee4b32bb67405c7a13bf/Y1.regenie.gz Y1.regenie.gz
+    ln -s /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/reports/child_phenostatistics.Rmd child_phenostatistics.Rmd
+    ln -s /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/reports/child_validationlogs.Rmd child_validationlogs.Rmd
+}
+
+nxf_unstage() {
+    true
+    [[ ${nxf_main_ret:=0} != 0 ]] && return
+}
+
+nxf_main() {
+    trap on_exit EXIT
+    trap on_term TERM INT USR2
+    trap '' USR1
+
+    [[ "${NXF_CHDIR:-}" ]] && cd "$NXF_CHDIR"
+    export NXF_BOXID="nxf-$(dd bs=18 count=1 if=/dev/urandom 2>/dev/null | base64 | tr +/ 0A | tr -d '\r\n')"
+    NXF_SCRATCH=''
+    [[ $NXF_DEBUG > 0 ]] && nxf_env
+    touch /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/e5/951d2333ae4af6d24fb53cb6e89835/.command.begin
+    set +u
+    set -u
+    [[ $NXF_SCRATCH ]] && cd $NXF_SCRATCH
+    export NXF_TASK_WORKDIR="$PWD"
+    nxf_stage
+
+    set +e
+    (set -o pipefail; (nxf_launch | tee .command.out) 3>&1 1>&2 2>&3 | tee .command.err) &
+    pid=$!
+    wait $pid || nxf_main_ret=$?
+    nxf_unstage
+}
+
+$NXF_ENTRY

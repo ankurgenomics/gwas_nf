@@ -1,0 +1,2 @@
+#!/bin/bash -ue
+regenie         --step 2         --pgen 1000g_lpa_hg38.vcf         --phenoFile phenotype.validated.txt         --phenoColList  Y1,Y2         --bsize 400         --pred regenie_step1_out_pred.list         --threads 8         --minMAC 5         --minINFO 0.00         --gz         --no-split                  --test additive                                                                                                                     --rare-mac 1000                           --out 1000g_lpa_hg38.vcf

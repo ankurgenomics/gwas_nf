@@ -1,0 +1,10 @@
+Name	Value
+Regenie Version 	v3.4.gz
+MAC limit	5
+Imputation info score limit	0.0
+Number of defined phenotypes	2
+Phenotyped individuals total	158
+Phenotyped individuals used	158
+Variants used (\*.bgen or \*.pvar)	3327
+Warnings	 Dosages are not present in the genotype file. Option --minINFO is skipped.
+Regenie Call	  --step 2   --pgen 1000g_lpa_hg38.vcf   --phenoFile phenotype.validated.txt   --phenoColList Y1,Y2   --bsize 400   --pred regenie_step1_out_pred.list   --threads 8   --minMAC 5   --minINFO 0.00   --gz   --no-split   --test additive   --rare-mac 1000 

@@ -1,0 +1,29 @@
+Picked up JAVA_TOOL_OPTIONS: -Djdk.lang.Process.launchMechanism=vfork
+
+genomic-utils 0.3.7
+https://github.com/genepi/genomic-utils
+(c) 2023 Lukas Forer and Sebastian Sch?nherr
+
+Picked up JAVA_TOOL_OPTIONS: -Djdk.lang.Process.launchMechanism=vfork
+
+genomic-utils 0.3.7
+https://github.com/genepi/genomic-utils
+(c) 2023 Lukas Forer and Sebastian Sch?nherr
+
+Loading required package: rmarkdown
+In addition: Warning message:
+In do_once((if (is_R_CMD_check()) stop else warning)("The function xfun::isFALSE() will be deprecated in the future. Please ",  :
+  The function xfun::isFALSE() will be deprecated in the future. Please consider using base::isFALSE(x) or identical(x, FALSE) instead.
+
+
+processing file: gwas_report_template.Rmd
+
+
+processing file: /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/9f/72e2464a5e5649f15965ad72eb693a/child_phenostatistics.Rmd
+
+
+processing file: /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/9f/72e2464a5e5649f15965ad72eb693a/child_validationlogs.Rmd
+output file: /home/ec2-user/GWAS/nf-gwas/scripts/gwas_nf/Nextflow_Scripts/work/9f/72e2464a5e5649f15965ad72eb693a/gwas_report_template.knit.md
+
+
+Output created: test.Y2.regenie.html
