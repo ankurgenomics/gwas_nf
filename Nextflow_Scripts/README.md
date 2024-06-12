@@ -1,11 +1,8 @@
 # nf-gwas
 
-[![nf-gwas](https://github.com/genepi/nf-gwas/actions/workflows/ci-tests.yml/badge.svg)](https://github.com/genepi/nf-gwas/actions/workflows/ci-tests.yml)
-[![nf-test](https://img.shields.io/badge/tested_with-nf--test-337ab7.svg)](https://github.com/askimed/nf-test)
-
 **nf-gwas** is a Nextflow pipeline to run biobank-scale genome-wide association studies (GWAS) analysis. The pipeline automatically performs numerous pre- and post-processing steps, integrates regression modeling from the REGENIE package and currently supports single-variant, gene-based and interaction testing. All modules are structured in sub-workflows which allows to extend the pipeline to other methods and tools in future. nf-gwas includes an extensive reporting functionality that allows to inspect thousands of phenotypes and navigate interactive Manhattan plots directly in the web browser. 
 
-The pipeline is tested using the unit-style testing framework [nf-test](https://github.com/askimed/nf-test) and includes a [schema definition](nextflow_schema.json) to run with **Nextflow Tower**.
+
 
 ![image](docs/images/Figure2_example_report.png)
 
@@ -61,13 +58,3 @@ curl -fsSL https://code.askimed.com/install/nf-test | bash
 ./nf-test test
 ```
 
-## License
-
-nf-gwas is MIT Licensed and was developed at the [Institute of Genetic Epidemiology](https://genepi.i-med.ac.at/), Medical University of Innsbruck, Austria.
-
-## Contact
-
-- [Sebastian Schönherr](mailto:sebastian.schoenherr@i-med.ac.at)
-- [Lukas Forer](mailto:lukas.forer@i-med.ac.at)
-- [Johanna Schachtl-Riess](mailto:johanna.schachtl-riess@i-med.ac.at)
-- [Silvia Di Maio](mailto:silvia.di-maio@i-med.ac.at)
