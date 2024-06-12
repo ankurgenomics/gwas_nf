@@ -17,16 +17,11 @@
 
 1. Install [Nextflow](https://www.nextflow.io/docs/latest/getstarted.html#installation) (>=22.10.4)
 
-2. Run the pipeline on a test dataset
+
+2. Run the pipeline on your data
 
 ```
-nextflow run genepi/nf-gwas -r v1.0.8 -profile test,<docker,singularity,slurm,slurm_with_scratch>
-```
-
-3. Run the pipeline on your data
-
-```
-nextflow run genepi/nf-gwas -c <nextflow.config> -r v1.0.8 -profile <docker,singularity,slurm,slurm_with_scratch>
+nextflow run main.nf -c <nextflow.config> -r v1.0.8 -profile docker
 ```
 
 Please click [here](tests) for available test config files.
@@ -34,9 +29,8 @@ Please click [here](tests) for available test config files.
 ## Development
 
 ```
-git clone https://github.com/genepi/nf-gwas
-cd nf-gwas
-docker build -t genepi/nf-gwas . # don't ignore the dot
+git clone https://github.com/ankurgenomics/gwas_nf
+cd gwas_nf
 nextflow run main.nf -profile test,development
 ```
 
@@ -49,4 +43,8 @@ cd nf-gwas
 curl -fsSL https://code.askimed.com/install/nf-test | bash
 ./nf-test test
 ```
+## Contact
+
+- [Ankur Sharma](mailto:ankur012@e.ntu.edu.sg)
+
 
