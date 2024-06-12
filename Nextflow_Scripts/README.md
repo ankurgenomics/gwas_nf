@@ -2,7 +2,6 @@
 
 **nf-gwas** is a Nextflow pipeline to run genome-wide association studies (GWAS) analysis. The pipeline automatically performs numerous pre- and post-processing steps, integrates regression modeling from the REGENIE package and currently supports single-variant, gene-based and interaction testing. All modules are structured in sub-workflows which allows to extend the pipeline to other methods and tools in future. nf-gwas includes an extensive reporting functionality that allows to inspect thousands of phenotypes and navigate interactive Manhattan plots directly in the web browser. 
 
-![image](docs/images/Figure2_example_report.png)
 
 ## Overall pipeline
 
@@ -48,6 +47,7 @@ A detailed project summary, phenotype stats, Manhattan Plot, Significant loci, Q
 
 Top hits for each can be find at [tophits](https://github.com/ankurgenomics/gwas_nf/tree/28aa91346b443393829803285c2a80427a39f361/OUTPUT/TEMUS_ETH_2/results/tophits)
 
+![image](docs/images/Figure2_example_report.png)
 
 
 
