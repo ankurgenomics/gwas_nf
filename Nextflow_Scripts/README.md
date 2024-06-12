@@ -9,7 +9,7 @@
 ## Overall pipeline
 
 
-![image](docs/images/Figure1_MetroMap_v02.jpg)
+![image](https://github.com/ankurgenomics/gwas_nf/blob/main/Nextflow_Scripts/Pipeline_Final.jpg)
 
 
 
