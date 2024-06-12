@@ -10,15 +10,15 @@ nf-gwas is a comprehensive and flexible Nextflow pipeline designed to perform ge
 The pipeline involves the following steps:
 
 1. **Splitting Genotype Data by Ethnicity**:
-   The pipeline begins by splitting the genotype data into separate datasets based on the ethnic groups provided in the `samples.txt` file. The script used for this step can be found at [Python_scripts](https://github.com/ankurgenomics/gwas_nf/blob/main/Python_scripts/README). The input files are available at [https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/INPUT/RAW_data](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/INPUT/RAW_data).
-   The Python script used for splitting the genotype data is located at [https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/split_genotype_by_ethinicity_2.py](https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/split_genotype_by_ethinicity_2.py).
-   The output files are stored at [https://github.com/ankurgenomics/gwas_nf/tree/e1dfc22455242edf9bd3ec6dc8946433d0c8bd4a/INPUT/Gentotype_splitted_as_per_ethnic_group]([https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT](https://github.com/ankurgenomics/gwas_nf/tree/e1dfc22455242edf9bd3ec6dc8946433d0c8bd4a/INPUT/Gentotype_splitted_as_per_ethnic_group)).
+   The pipeline begins by splitting the genotype data into separate datasets based on the ethnic groups provided in the `samples.txt` file. The script used for this step can be found at [Python_scripts](https://github.com/ankurgenomics/gwas_nf/blob/main/Python_scripts/README). The input files are available at [INPUT/RAW_data](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/INPUT/RAW_data).
+   The Python script used for splitting the genotype data is [split_genotype_by_ethinicity_2.py](https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/split_genotype_by_ethinicity_2.py).
+   The output files are stored at [Gentotype_splitted_as_per_ethnic_group]([https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT](https://github.com/ankurgenomics/gwas_nf/tree/e1dfc22455242edf9bd3ec6dc8946433d0c8bd4a/INPUT/Gentotype_splitted_as_per_ethnic_group)).
 
 3. **Converting Continuous Phenotype to Binary Case/Control Phenotype (Optional)**:
-   For certain workflows, it may be necessary to convert continuous phenotypes to binary case/control phenotypes. This can be achieved using the script located at [https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/phenotype_txt_to_binary_ph.py](https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/phenotype_txt_to_binary_ph.py).
+   For certain workflows, it may be necessary to convert continuous phenotypes to binary case/control phenotypes. This can be achieved using the script [phenotype_txt_to_binary_ph.py](https://github.com/ankurgenomics/gwas_nf/blob/c7c75fbb5578e83a4afa239becdf403c35ea006f/Python_scripts/phenotype_txt_to_binary_ph.py).
 
 4. **Nextflow Scripts for GWAS Analysis**:
-   The ethnicity-based split genotype files are used as input for the next steps, which are performed using modular and scalable Nextflow scripts located at [https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/Nextflow_Scripts](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/Nextflow_Scripts).
+   The ethnicity-based split genotype files are used as input for the next steps, which are performed using modular and scalable [Nextflow_Scripts](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/Nextflow_Scripts).
 
 5. **Quality Control and GWAS**:
    The Nextflow scripts perform standard quality control steps, including removing individuals and SNPs with high missingness for each ethnic group separately. They also perform GWAS for each ethnic group separately.
@@ -27,7 +27,7 @@ The pipeline involves the following steps:
    The scripts identify and report common variants across the different ethnic groups.
 
 7. **Output**:
-   The results of these analyses are stored at [https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT).
+   The results of these analyses are stored at [OUTPUT](https://github.com/ankurgenomics/gwas_nf/tree/c7c75fbb5578e83a4afa239becdf403c35ea006f/OUTPUT).
 
 ### Contact
 
@@ -35,10 +35,6 @@ For any inquiries or questions, please contact:
 
 - [Ankur Sharma](mailto:ankur012@e.ntu.edu.sg)
 
- 
-## Contact
-
-- [Ankur Sharma](mailto:ankur012@e.ntu.edu.sg)
 
 
 
