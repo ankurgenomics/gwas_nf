@@ -6,9 +6,8 @@
 
 ![image](docs/images/Figure2_example_report.png)
 
-## Documentation
+## Overall pipeline
 
-Documentation can be found [here](https://genepi.github.io/nf-gwas/).
 
 ![image](docs/images/Figure1_MetroMap_v02.jpg)
 
