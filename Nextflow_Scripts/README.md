@@ -29,8 +29,6 @@ cd Nextflow_Scripts
 nextflow run main.nf -c <nextflow.config>  -profile docker
 ```
 
-Please click [here](tests) for available test config files.
-
 ## Development
 
 ```
