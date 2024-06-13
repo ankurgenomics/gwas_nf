@@ -15,9 +15,9 @@ nav_order: 2
 3. Run the pipeline on a test dataset to validate your installation.
 
     ```
-    nextflow run genepi/nf-gwas -r <latest-tag> -profile test,docker
+    nextflow run ankurgenomics/gwas_nf/ -r <latest-tag> -profile test,docker
     ```
-**Note:** Click [here](https://github.com/genepi/nf-gwas/tags) to replace the `<latest-tag>` with the actual version you want to run (e.g. `-r v1.0.0`). 
+**Note:** Click [here](https://github.com/ankurgenomics/gwas_nf/tags) to replace the `<latest-tag>` with the actual version you want to run (e.g. `-r v1.0.0`). 
 
 ### Run the pipeline on your data
 
@@ -41,7 +41,7 @@ nav_order: 2
 
 2. Run the pipeline on your data with your configuration file
     ```
-    nextflow run genepi/nf-gwas -c project.config -r v<[latest tag](https://github.com/genepi/nf-gwas/tags)> -profile <docker,singularity>
+    nextflow run ankurgenomics/gwas_nf -c project.config -r v<[latest tag](https://github.com/ankurgenomics/gwas_nf/tags)> -profile <docker,singularity>
     ```
 
 **Note:** The slurm profiles require that (a) singularity is installed on all nodes and (b) a shared file system path as a working directory.
