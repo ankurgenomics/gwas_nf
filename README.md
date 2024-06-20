@@ -1,9 +1,9 @@
-# nf-gwas
-**nf-gwas: A Modular and Scalable Nextflow Pipeline for Genome-Wide Association Studies (GWAS)**
+# gwas_nf
+**gwas_nf: A Modular and Scalable Nextflow Pipeline for Genome-Wide Association Studies (GWAS)**
 
 **Overview**
 
-nf-gwas is a comprehensive and flexible Nextflow pipeline designed to perform genome-wide association studies (GWAS) analysis. This pipeline automates numerous pre- and post-processing steps, integrates regression modeling from the REGENIE package, and supports single-variant, gene-based, and interaction testing. The modular structure of the pipeline allows for easy extension to incorporate additional methods and tools in the future. Furthermore, nf-gwas includes an extensive reporting functionality, enabling users to inspect thousands of phenotypes and navigate interactive Manhattan plots directly in the web browser.
+gwas_nf is a comprehensive and flexible Nextflow pipeline designed to perform genome-wide association studies (GWAS) analysis. This pipeline automates numerous pre- and post-processing steps, integrates regression modeling from the REGENIE package, and supports single-variant, gene-based, and interaction testing. The modular structure of the pipeline allows for easy extension to incorporate additional methods and tools in the future. Furthermore, gwas_nf includes an extensive reporting functionality, enabling users to inspect thousands of phenotypes and navigate interactive Manhattan plots directly in the web browser.
 
 ### Process
 
